@@ -1,109 +1,150 @@
 :root {
-    /* Add new color variables */
-    --accent-color: #ff9f43;
-    --text-color: #2d3436;
-    --bg-color: #ffffff;
+    --primary-blue: #2A7FFF;
+    --dark-blue: #0F1C3F;
+    --accent-blue: #00C8FF;
+    --text-white: #F0F4FF;
+    --gradient-bg: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
 }
 
-/* Skills Section */
-.skills {
-    padding: 5rem 5%;
-    background: var(--bg-color);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+body {
+    background: var(--gradient-bg);
+    color: var(--text-white);
+    line-height: 1.6;
 }
 
-.skill-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* Modern Header */
+.header {
+    background: rgba(16, 24, 64, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
 }
 
-.skill-card i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.skill-progress {
-    height: 10px;
-    background: #eee;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background: var(--secondary-color);
-    transition: width 1s ease-in-out;
-}
-
-/* Education Timeline */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: var(--primary-color);
-}
-
-.timeline-item {
-    position: relative;
-    width: 50%;
-    padding: 1.5rem;
-    animation: slideRight 1s forwards;
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
-
-.timeline-content {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-/* Visitor Counter */
-.visitor-counter {
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1rem;
 }
 
-/* Resume Button */
-.resume-btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--accent-color);
-    color: white;
+.logo-img {
+    height: 40px;
+    width: 40px;
+}
+
+.nav-links li {
+    position: relative;
+    padding: 0.5rem;
+}
+
+.nav-links a {
+    color: var(--text-white);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+    transform: translateY(-2px);
+}
+
+.nav-links a i {
+    font-size: 1.2rem;
+}
+
+/* Modern Hero Section */
+.hero {
+    padding: 12rem 5% 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Modern Card Design */
+.project-card, .skill-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Modern Button Design */
+.resume-btn {
+    background: var(--accent-blue);
+    color: var(--dark-blue);
+    padding: 1rem 2rem;
     border-radius: 50px;
-    margin-top: 1rem;
-    transition: transform 0.3s;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .resume-btn:hover {
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,200,255,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 8rem 5% 4rem;
+    }
+    
+    .hero-image img {
+        max-width: 300px;
+        margin-top: 2rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
 }
