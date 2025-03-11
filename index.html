@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahidullah Kaisar | Personal Website</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="logo">Kaisar's Space</div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -17,39 +19,49 @@
                 <li><a href="#news">News</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="burger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
     
-    <section id="home">
-        <h1>Welcome to My Personal Website</h1>
-        <p>Hi, I'm Shahidullah Kaisar, a passionate student exploring physics and quantum computing.</p>
+    <section id="home" class="hero">
+        <h1>Welcome to My Universe</h1>
+        <p>Exploring Physics, Quantum Computing & Beyond</p>
+        <a href="#projects" class="btn">View Projects</a>
     </section>
     
-    <section id="about">
+    <section id="about" class="about">
         <h2>About Me</h2>
-        <p>Write a short bio here...</p>
+        <p>A student with a passion for quantum mechanics, physics, and material science.</p>
     </section>
     
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>List of projects with images and descriptions...</p>
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">Quantum Simulations</div>
+        <div class="project-card">DFT Calculations</div>
+        <div class="project-card">Schrödinger Solver</div>
     </section>
     
-    <section id="blog">
+    <section id="blog" class="blog">
         <h2>Blog</h2>
-        <p>Articles and thoughts...</p>
+        <p>Latest thoughts & research updates.</p>
     </section>
     
-    <section id="news">
+    <section id="news" class="news">
         <h2>News & Achievements</h2>
-        <p>Recent updates...</p>
+        <p>Recent breakthroughs & events.</p>
     </section>
     
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email and social links...</p>
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Connect with me via email or social platforms.</p>
     </section>
     
-    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
