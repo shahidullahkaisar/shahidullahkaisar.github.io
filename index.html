@@ -3,303 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shahidullah Kaisar - Portfolio</title>
+    <title>Shahidullah Kaisar (Shamim)</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-blue: #2563eb;
-            --dark-blue: #1e3a8a;
-            --accent-blue: #60a5fa;
-            --text-white: #f8fafc;
-            --gradient-bg: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: var(--gradient-bg);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Modern Header */
-        .header {
-            background: rgba(30, 58, 138, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-img {
-            height: 40px;
-            width: 40px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: 0.3s;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-blue);
-            transform: translateY(-2px);
-        }
-
-        .nav-links i {
-            font-size: 1.2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 12rem 5% 6rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            animation: slideLeft 1s forwards;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideLeft 1s 0.2s forwards;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 5rem 5%;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: 0.4s;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.15);
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        /* Contact Form */
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            color: var(--text-white);
-        }
-
-        button {
-            background: var(--accent-blue);
-            color: var(--dark-blue);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes slideLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 8rem 5% 4rem;
-            }
-
-            .hero-image img {
-                max-width: 300px;
-                margin: 2rem auto 0;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
             <div class="logo">
                 <img src="images/logo.png" alt="SK Logo" class="logo-img">
-                Shahidullah<span style="color: var(--accent-blue)">Kaisar</span>
+                S<span class="accent">K</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-                <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#projects"><i class="fas fa-flask"></i> Projects</a></li>
+                <li><a href="#skills"><i class="fas fa-atom"></i> Skills</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#contact"><i class="fas fa-address-card"></i> Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Full-Stack Developer<br>&<span style="color: var(--accent-blue)"> AI Enthusiast</span></h1>
-            <p>Building intelligent solutions with modern technologies</p>
-            <div class="social-links">
-                <a href="https://github.com/shahidullahkaisar" target="_blank" class="social-btn">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="#" class="social-btn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-            </div>
+            <h1>Shahidullah Kaisar <span class="accent">(Shamim)</span></h1>
+            <h2>Physics Student | Quantum Computing Enthusiast</h2>
+            <p class="university">Shahjalal University of Science and Technology</p>
+            <div class="animated-divider"></div>
+            <p class="research">Current Research: DFT Study of NaGaCl<sub>3</sub></p>
         </div>
         <div class="hero-image">
-            <img src="images/profile.png" alt="Shahidullah Kaisar">
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/project1.jpg" alt="AI Project">
-                </div>
-                <h3>AI-Powered Chat System</h3>
-                <p>Natural language processing chatbot using Python and TensorFlow</p>
-            </div>
-            <!-- Add more project cards -->
+            <img src="images/profile.jpg" alt="Shahidullah Kaisar">
         </div>
     </section>
 
     <section id="skills" class="skills">
-        <h2 class="section-title">Technical Expertise</h2>
+        <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
         <div class="skills-container">
-            <div class="skill-card">
-                <i class="fab fa-python"></i>
-                <h3>Python</h3>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 90%"></div>
+            <!-- Skill cards will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Research <span class="accent">Projects</span></h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="quantum-badge">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3>DFT Study of NaGaCl<sub>3</sub></h3>
+                <p>Density Functional Theory analysis using Quantum Espresso</p>
+                <div class="tech-stack">
+                    <span>Quantum Espresso</span>
+                    <span>Python</span>
+                    <span>Materials Science</span>
                 </div>
             </div>
-            <!-- Add more skills -->
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Photo <span class="accent">Gallery</span></h2>
+        <div class="gallery-grid">
+            <!-- Gallery items will be added later -->
+            <div class="gallery-placeholder">
+                <i class="fas fa-camera-retro"></i>
+                <p>Gallery Coming Soon</p>
+            </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
-        </form>
+        <h2 class="section-title">Contact <span class="accent">Me</span></h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <p>+880 - - - - - - - - - -</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <p>-------------@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <p>linkedin.com/in/-------------</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <p>github.com/-------------</p>
+            </div>
+        </div>
     </section>
 
     <footer class="footer">
-        <p>© 2024 Shahidullah Kaisar. All rights reserved</p>
+        <div class="quantum-wave"></div>
+        <p>&copy; 2024 Shahidullah Kaisar. Pursuing Knowledge at SUST</p>
     </footer>
 
-    <script>
-        // Simple animations on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        });
-
-        document.querySelectorAll('.project-card, .skill-card').forEach((el) => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(20px)';
-            observer.observe(el);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
