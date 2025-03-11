@@ -3,104 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shahidullah Kaisar (Shamim)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Shahidullah Kaisar | Physics Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">
-                <img src="images/logo.png" alt="SK Logo" class="logo-img">
-                S<span class="accent">K</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#projects"><i class="fas fa-flask"></i> Projects</a></li>
-                <li><a href="#skills"><i class="fas fa-atom"></i> Skills</a></li>
-                <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
-                <li><a href="#contact"><i class="fas fa-address-card"></i> Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Shahidullah Kaisar <span class="accent">(Shamim)</span></h1>
-            <h2>Physics Student | Quantum Computing Enthusiast</h2>
-            <p class="university">Shahjalal University of Science and Technology</p>
-            <div class="animated-divider"></div>
-            <p class="research">Current Research: DFT Study of NaGaCl<sub>3</sub></p>
-        </div>
-        <div class="hero-image">
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+        <div class="profile">
             <img src="images/profile.jpg" alt="Shahidullah Kaisar">
+            <h2>Shahidullah Kaisar</h2>
+            <p>Physics Researcher</p>
         </div>
-    </section>
+        <ul class="nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#research"><i class="fas fa-microscope"></i>Research</a></li>
+            <li><a href="#skills"><i class="fas fa-atom"></i>Skills</a></li>
+            <li><a href="#projects"><i class="fas fa-flask"></i>Projects</a></li>
+            <li><a href="#gallery"><i class="fas fa-images"></i>Gallery</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i>Contact</a></li>
+        </ul>
+    </nav>
 
-    <section id="skills" class="skills">
-        <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
-        <div class="skills-container">
-            <!-- Skill cards will be populated by JavaScript -->
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2 class="section-title">Research <span class="accent">Projects</span></h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="quantum-badge">
-                    <i class="fas fa-atom"></i>
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="hero">
+                <h1 class="hero-title">Quantum Computing &<br>Materials Science Researcher</h1>
+                <p class="hero-subtitle">Shahjalal University of Science and Technology</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-researchgate"></i></a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <h2 class="section-title">Current Research</h2>
+            <div class="research-card">
+                <div class="quantum-badge">Quantum</div>
                 <h3>DFT Study of NaGaCl<sub>3</sub></h3>
-                <p>Density Functional Theory analysis using Quantum Espresso</p>
+                <p>Utilizing Density Functional Theory with Quantum Espresso to investigate electronic properties...</p>
                 <div class="tech-stack">
                     <span>Quantum Espresso</span>
-                    <span>Python</span>
-                    <span>Materials Science</span>
+                    <span>DFT</span>
+                    <span>Materials Studio</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="gallery" class="gallery">
-        <h2 class="section-title">Photo <span class="accent">Gallery</span></h2>
-        <div class="gallery-grid">
-            <!-- Gallery items will be added later -->
-            <div class="gallery-placeholder">
-                <i class="fas fa-camera-retro"></i>
-                <p>Gallery Coming Soon</p>
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <!-- Skills populated by JavaScript -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contact <span class="accent">Me</span></h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <i class="fab fa-whatsapp"></i>
-                <p>+880 - - - - - - - - - -</p>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Research Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/quantum-computing.jpg" alt="Quantum Computing">
+                    </div>
+                    <h3>Quantum Algorithm Development</h3>
+                    <p>Exploring quantum algorithms for materials simulation</p>
+                </div>
             </div>
-            <div class="contact-card">
-                <i class="fas fa-envelope"></i>
-                <p>-------------@gmail.com</p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-linkedin"></i>
-                <p>linkedin.com/in/-------------</p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-github"></i>
-                <p>github.com/-------------</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="footer">
-        <div class="quantum-wave"></div>
-        <p>&copy; 2024 Shahidullah Kaisar. Pursuing Knowledge at SUST</p>
-    </footer>
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <p>+880 - - - - - - - - - -</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <p>-------------@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <p>linkedin.com/in/-------------</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
