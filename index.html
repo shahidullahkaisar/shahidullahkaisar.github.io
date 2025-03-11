@@ -4,119 +4,302 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahidullah Kaisar - Portfolio</title>
-    
-    <!-- Google Analytics (Replace GA_MEASUREMENT_ID with your ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GA_MEASUREMENT_ID');
-    </script>
-
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e3a8a;
+            --accent-blue: #60a5fa;
+            --text-white: #f8fafc;
+            --gradient-bg: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--gradient-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Header */
+        .header {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .nav-links i {
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 12rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideLeft 1s forwards;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideLeft 1s 0.2s forwards;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 5%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        /* Contact Form */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: var(--text-white);
+        }
+
+        button {
+            background: var(--accent-blue);
+            color: var(--dark-blue);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 8rem 5% 4rem;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+                margin: 2rem auto 0;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Shahidullah<span>Kaisar</span></div>
+            <div class="logo">
+                <img src="images/logo.png" alt="SK Logo" class="logo-img">
+                Shahidullah<span style="color: var(--accent-blue)">Kaisar</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="slide-left">Hi, I'm <span>Shahidullah Kaisar</span></h1>
-            <p class="slide-left">Computer Science Student | Developer | Tech Enthusiast</p>
-            <div class="social-links slide-left">
-                <a href="https://github.com/shahidullahkaisar" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <h1>Full-Stack Developer<br>&<span style="color: var(--accent-blue)"> AI Enthusiast</span></h1>
+            <p>Building intelligent solutions with modern technologies</p>
+            <div class="social-links">
+                <a href="https://github.com/shahidullahkaisar" target="_blank" class="social-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="social-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
             </div>
-            <a href="assets/resume.pdf" download class="resume-btn slide-left">Download Resume</a>
         </div>
         <div class="hero-image">
             <img src="images/profile.png" alt="Shahidullah Kaisar">
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title">Featured Projects</h2>
         <div class="project-grid">
-            <!-- Project 1 -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/project1.jpg" alt="E-Commerce Project">
+                    <img src="images/project1.jpg" alt="AI Project">
                 </div>
-                <h3>E-Commerce Website</h3>
-                <p>Built using MERN stack with payment gateway integration</p>
+                <h3>AI-Powered Chat System</h3>
+                <p>Natural language processing chatbot using Python and TensorFlow</p>
             </div>
-            <!-- Add more projects -->
+            <!-- Add more project cards -->
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
-        <h2 class="section-title">Technical Skills</h2>
+        <h2 class="section-title">Technical Expertise</h2>
         <div class="skills-container">
             <div class="skill-card">
-                <i class="fab fa-html5"></i>
-                <h3>HTML5</h3>
-                <div class="skill-progress">
-                    <div class="progress html" style="width: 90%"></div>
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
                 </div>
             </div>
             <!-- Add more skills -->
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-container">
-            <form class="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea rows="5" placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Shahidullah Kaisar. All rights reserved</p>
-        <div class="visitor-counter">
-            <i class="fas fa-users"></i>
-            <span id="counter">0</span> visitors
-        </div>
+        <p>© 2024 Shahidullah Kaisar. All rights reserved</p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    
-    <!-- Visitor Counter Script -->
     <script>
-        // Simple visitor counter
-        let visitCount = localStorage.getItem('visitCount') || 0;
-        visitCount++;
-        localStorage.setItem('visitCount', visitCount);
-        document.getElementById('counter').textContent = visitCount;
+        // Simple animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.project-card, .skill-card').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
