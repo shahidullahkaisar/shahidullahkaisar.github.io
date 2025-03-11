@@ -1,27 +1,51 @@
-// Visitor Counter (using localStorage)
-let visitCount = localStorage.getItem('visitCount') || 0;
-visitCount++;
-localStorage.setItem('visitCount', visitCount);
-document.getElementById('counter').textContent = visitCount;
+document.addEventListener('DOMContentLoaded', () => {
+    // Skills Data
+    const skills = [
+        {name: 'Python', icon: 'fab fa-python'},
+        {name: 'C++', icon: 'fas fa-code'},
+        {name: 'Julia', icon: 'fas fa-calculator'},
+        {name: 'Matplotlib', icon: 'fas fa-chart-line'},
+        {name: 'Machine Learning', icon: 'fas fa-brain'},
+        {name: 'DFT', icon: 'fas fa-atom'},
+        {name: 'Quantum Espresso', icon: 'fas fa-microscope'},
+        {name: 'Linux (Ubuntu)', icon: 'fab fa-linux'}
+    ];
 
-// Progress Animation
-document.querySelectorAll('.progress').forEach(progress => {
-    const width = progress.style.width;
-    progress.style.width = '0';
-    setTimeout(() => {
-        progress.style.width = width;
-    }, 500);
-});
-
-// Add Intersection Observer for timeline
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'slideRight 1s forwards';
-        }
+    // Populate Skills
+    const skillsContainer = document.querySelector('.skills-container');
+    skills.forEach(skill => {
+        const skillCard = document.createElement('div');
+        skillCard.className = 'skill-card';
+        skillCard.innerHTML = `
+            <i class="${skill.icon}"></i>
+            <h3>${skill.name}</h3>
+        `;
+        skillsContainer.appendChild(skillCard);
     });
-}, { threshold: 0.3 });
 
-document.querySelectorAll('.timeline-item').forEach(item => {
-    timelineObserver.observe(item);
+    // Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {threshold: 0.1});
+
+    document.querySelectorAll('.skill-card, .project-card, .contact-card').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        observer.observe(el);
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 });
