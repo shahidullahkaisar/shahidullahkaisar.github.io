@@ -1,9 +1,10 @@
 :root {
-    --primary-blue: #2A7FFF;
-    --dark-blue: #0F1C3F;
-    --accent-blue: #00C8FF;
-    --text-white: #F0F4FF;
-    --gradient-bg: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+    --primary-blue: #1a237e;
+    --dark-blue: #0d47a1;
+    --accent: #4fc3f7;
+    --quantum-purple: #7c4dff;
+    --text-light: #e3f2fd;
+    --gradient-bg: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
 }
 
 * {
@@ -15,13 +16,12 @@
 
 body {
     background: var(--gradient-bg);
-    color: var(--text-white);
+    color: var(--text-light);
     line-height: 1.6;
 }
 
-/* Modern Header */
 .header {
-    background: rgba(16, 24, 64, 0.95);
+    background: rgba(13, 71, 161, 0.95);
     backdrop-filter: blur(10px);
     padding: 1rem 5%;
     position: fixed;
@@ -43,30 +43,27 @@ body {
     width: 40px;
 }
 
-.nav-links li {
-    position: relative;
-    padding: 0.5rem;
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
 .nav-links a {
-    color: var(--text-white);
+    color: var(--text-light);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     transition: 0.3s;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: var(--accent-blue);
+    color: var(--accent);
     transform: translateY(-2px);
 }
 
-.nav-links a i {
-    font-size: 1.2rem;
-}
-
-/* Modern Hero Section */
 .hero {
     padding: 12rem 5% 6rem;
     display: grid;
@@ -75,63 +72,85 @@ body {
     min-height: 100vh;
 }
 
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
 .hero-image img {
     width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
-    animation: float 4s ease-in-out infinite;
+    max-width: 400px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 30px var(--quantum-purple);
 }
 
-/* Modern Card Design */
-.project-card, .skill-card {
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.skill-card {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(12px);
     border-radius: 15px;
     padding: 2rem;
+    text-align: center;
     transition: 0.4s;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--accent);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255,255,255,0.15);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+.project-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Modern Button Design */
-.resume-btn {
-    background: var(--accent-blue);
-    color: var(--dark-blue);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    display: inline-flex;
+.quantum-badge {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: var(--quantum-purple);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
-.resume-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,200,255,0.3);
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
 }
 
-/* Responsive Design */
+.contact-card {
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(79, 195, 247, 0.1);
+}
+
+.quantum-wave {
+    height: 20px;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--accent),
+        var(--accent) 10px,
+        var(--quantum-purple) 10px,
+        var(--quantum-purple) 20px
+    );
+}
+
 @media (max-width: 768px) {
     .hero {
         grid-template-columns: 1fr;
@@ -140,11 +159,7 @@ body {
     }
     
     .hero-image img {
-        max-width: 300px;
-        margin-top: 2rem;
-    }
-    
-    .nav-links {
-        gap: 1rem;
+        max-width: 250px;
+        margin: 2rem auto 0;
     }
 }
