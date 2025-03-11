@@ -1,147 +1,123 @@
 :root {
-    --primary-color: #0a192f;
-    --secondary-color: #64ffda;
-    --text-primary: #ccd6f6;
-    --text-secondary: #8892b0;
-    --bg-dark: #020c1b;
-    --quantum-accent: #7C4DFF;
+    --primary-blue: #2A7FFF;
+    --dark-blue: #0F1C3F;
+    --accent: #00C8FF;
+    --text-dark: #2d3436;
+    --text-light: #ffffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: var(--primary-color);
-    color: var(--text-primary);
+    background: #f8f9fa;
 }
 
-/* Sidebar Navigation */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 260px;
-    background: var(--bg-dark);
-    padding: 2rem;
-    border-right: 1px solid rgba(100, 255, 218, 0.1);
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
 }
 
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    border: 3px solid var(--secondary-color);
-}
-
-.nav-links li {
-    margin: 1.5rem 0;
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
+.profile-section {
+    background: var(--dark-blue);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    transition: 0.3s;
+    justify-content: center;
+    padding: 2rem;
 }
 
-.nav-links a:hover {
-    color: var(--secondary-color);
+.profile-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid var(--accent);
+    margin-bottom: 2rem;
 }
 
-/* Main Content */
-.content {
-    margin-left: 260px;
+.hello-text {
+    color: var(--text-light);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 4rem;
 }
 
-.section {
-    margin-bottom: 6rem;
+.about-section {
+    margin-bottom: 4rem;
 }
 
-.hero {
-    text-align: center;
-    padding: 4rem 0;
+.about-section h2 {
+    color: var(--dark-blue);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.hero-title {
+.about-section p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.nav-circles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+}
+
+.nav-item i {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--secondary-color);
 }
 
-.research-card {
-    background: rgba(100, 255, 218, 0.05);
-    border: 1px solid var(--secondary-color);
-    border-radius: 10px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
+.nav-item span {
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.quantum-badge {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    background: var(--quantum-accent);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    transform: rotate(45deg);
-    font-size: 0.9rem;
-    width: 120px;
-    text-align: center;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.skill-card {
-    background: var(--bg-dark);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid rgba(100, 255, 218, 0.1);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.contact-card {
-    background: var(--bg-dark);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--secondary-color);
-}
+.resume { background: #FF6B6B; color: white; }
+.projects { background: #4ECDC4; color: white; }
+.skills { background: #45B7D1; color: white; }
+.contact { background: #7C4DFF; color: white; }
 
 @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
+    .container {
+        grid-template-columns: 1fr;
     }
     
-    .content {
-        margin-left: 0;
-        padding: 2rem;
+    .profile-section {
+        padding: 4rem 1rem;
+    }
+    
+    .profile-img {
+        width: 200px;
+        height: 200px;
     }
 }
