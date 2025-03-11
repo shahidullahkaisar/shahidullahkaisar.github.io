@@ -1,28 +1,109 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
+:root {
+    /* Add new color variables */
+    --accent-color: #ff9f43;
+    --text-color: #2d3436;
+    --bg-color: #ffffff;
 }
-header {
-    background: #333;
-    color: white;
-    padding: 15px;
+
+/* Skills Section */
+.skills {
+    padding: 5rem 5%;
+    background: var(--bg-color);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-nav ul {
-    list-style: none;
-    padding: 0;
+
+.skill-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+
+.skill-progress {
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
 }
-nav ul li a {
+
+.progress {
+    height: 100%;
+    background: var(--secondary-color);
+    transition: width 1s ease-in-out;
+}
+
+/* Education Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1.5rem;
+    animation: slideRight 1s forwards;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Visitor Counter */
+.visitor-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Resume Button */
+.resume-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
     color: white;
     text-decoration: none;
+    border-radius: 50px;
+    margin-top: 1rem;
+    transition: transform 0.3s;
 }
-section {
-    padding: 50px;
-    text-align: center;
+
+.resume-btn:hover {
+    transform: translateY(-3px);
 }
