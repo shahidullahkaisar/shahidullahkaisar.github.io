@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  SHAHIDULLAH'S WEBSITE 🌿                                  ║
+     ║  Every place you can edit is marked with:   ✏️ EDIT        ║
+     ║  Full instructions: see EDITING_GUIDE.md                  ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+
+<!-- ✏️ EDIT: browser tab title -->
+<title>Shahidullah Kaisar 🌿 physicist & photo-taker</title>
+<meta name="description" content="Shahidullah Kaisar — computational materials science student at SUST. Physics, photos, and plants.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════ THEME — "nature, computed" 🌿
+   Want different greens? Just change these hex codes. */
+:root{
+  --paper:  #F6F8F1;   /* pale moss paper */
+  --ink:    #22372B;   /* deep pine text */
+  --moss:   #4E8A57;   /* main green */
+  --pine:   #2C5E3F;   /* dark green */
+  --pollen: #E9B94D;   /* tiny yellow accent — flowers! */
+  --mist:   #E4EDE2;   /* soft green tint */
+  --line:   #D3DFD1;
+  --r: 18px;           /* roundness of everything */
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation:none!important; transition:none!important; }
+}
+
+body{
+  font-family:'Nunito', system-ui, sans-serif;
+  background:var(--paper); color:var(--ink);
+  font-size:17px; line-height:1.7;
+}
+::selection{ background:var(--moss); color:#fff; }
+h1,h2,h3{ font-family:'Fraunces', Georgia, serif; font-weight:500; line-height:1.15; }
+a{ color:var(--pine); }
+a:focus-visible,button:focus-visible{ outline:3px solid var(--pollen); outline-offset:3px; border-radius:6px; }
+.mono{ font-family:'IBM Plex Mono',monospace; }
+img{ max-width:100%; display:block; }
+
+.wrap{ max-width:1000px; margin:0 auto; padding:0 24px; }
+section{ padding:80px 0; }
+
+/* squiggly vine underline for section titles 🌱 */
+h2.sec{
+  font-size:clamp(1.8rem,4vw,2.5rem); display:inline-block; margin-bottom:34px; position:relative;
+}
+h2.sec::after{
+  content:""; display:block; height:8px; margin-top:6px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='8'%3E%3Cpath d='M0 4 Q 7.5 0, 15 4 T 30 4 T 45 4 T 60 4' fill='none' stroke='%234E8A57' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:.75rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--moss); margin-bottom:8px;
+}
+
+/* ══════════════ NAV */
+nav{
+  position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:50;
+  background:rgba(246,248,241,.85); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--line); border-radius:100px;
+  padding:8px 10px; display:flex; gap:2px; align-items:center;
+  box-shadow:0 6px 24px rgba(34,55,43,.08);
+  max-width:calc(100% - 24px); overflow-x:auto; white-space:nowrap;
+}
+nav a{
+  font-family:'IBM Plex Mono',monospace; font-size:.78rem; text-decoration:none;
+  color:var(--ink); padding:7px 13px; border-radius:100px; transition:background .15s,color .15s;
+}
+nav a:hover{ background:var(--moss); color:#fff; }
+
+/* ══════════════ HERO */
+header{
+  min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(700px 400px at 85% 20%, #E9F1E4 0%, transparent 60%),
+    var(--paper);
+}
+#garden{ position:absolute; inset:0; width:100%; height:100%; }
+.hero-grid{
+  position:relative; z-index:2; width:100%;
+  display:grid; grid-template-columns:auto 1fr; gap:56px; align-items:center;
+  max-width:1000px; margin:0 auto; padding:110px 24px 80px;
+}
+@media (max-width:800px){ .hero-grid{ grid-template-columns:1fr; gap:32px; text-align:center; justify-items:center; } }
+
+/* blobby profile photo 🫧 */
+.blob{
+  width:min(250px,60vw); aspect-ratio:1; object-fit:cover;
+  border-radius:58% 42% 55% 45% / 48% 55% 45% 52%;
+  border:5px solid #fff; box-shadow:0 16px 40px rgba(44,94,63,.22);
+  animation:blobmorph 9s ease-in-out infinite alternate;
+}
+@keyframes blobmorph{
+  0%  { border-radius:58% 42% 55% 45% / 48% 55% 45% 52%; }
+  100%{ border-radius:45% 55% 44% 56% / 55% 46% 54% 45%; }
+}
+.hello{
+  font-family:'IBM Plex Mono',monospace; font-size:.85rem; color:var(--moss); margin-bottom:10px;
+}
+.wave{ display:inline-block; animation:wave 2.4s ease-in-out infinite; transform-origin:70% 70%; }
+@keyframes wave{ 0%,60%,100%{transform:rotate(0)} 10%{transform:rotate(16deg)} 20%{transform:rotate(-8deg)} 30%{transform:rotate(14deg)} 40%{transform:rotate(-4deg)} }
+h1.big{
+  font-size:clamp(2.4rem,6vw,4rem);
+}
+h1.big em{ color:var(--moss); font-style:italic; }
+.hero-p{ margin-top:18px; max-width:50ch; font-size:1.05rem; }
+.hero-btns{ margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; }
+@media (max-width:800px){ .hero-btns{ justify-content:center; } }
+.btn{
+  display:inline-block; text-decoration:none; font-weight:700; font-size:.92rem;
+  padding:12px 24px; border-radius:100px; transition:transform .15s, box-shadow .15s;
+}
+.btn:hover{ transform:translateY(-3px) rotate(-1deg); }
+.btn-g{ background:var(--moss); color:#fff; box-shadow:0 8px 20px rgba(78,138,87,.35); }
+.btn-o{ border:2px solid var(--pine); color:var(--pine); }
+.grow-btn{
+  position:absolute; bottom:20px; right:20px; z-index:3;
+  font-family:'IBM Plex Mono',monospace; font-size:.75rem;
+  background:#fff; border:1px solid var(--line); color:var(--pine);
+  border-radius:100px; padding:8px 16px; cursor:pointer;
+  transition:transform .15s;
+}
+.grow-btn:hover{ transform:scale(1.06) rotate(-2deg); }
+
+/* ══════════════ SKILL TICKER 🎞 */
+.ticker{
+  background:var(--pine); color:#EAF3E6; overflow:hidden; padding:13px 0;
+  transform:rotate(-1deg) scale(1.02);
+}
+.ticker-track{
+  display:flex; gap:44px; width:max-content;
+  animation:scroll 26s linear infinite;
+  font-family:'IBM Plex Mono',monospace; font-size:.85rem; letter-spacing:.06em;
+}
+.ticker-track span::after{ content:" ✦"; color:var(--pollen); }
+@keyframes scroll{ to{ transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce){ .ticker-track{ animation:none; flex-wrap:wrap; width:auto; padding:0 20px; } }
+
+/* ══════════════ ABOUT */
+.about-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:44px; }
+@media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
+.about-grid p+p{ margin-top:14px; }
+.moto-card{
+  background:var(--mist); border-radius:var(--r); padding:30px;
+  transform:rotate(1.2deg); border:1px solid var(--line);
+}
+.moto-card h3{ font-size:1.25rem; margin-bottom:10px; }
+.moto-card p{ font-size:.95rem; }
+.moto-card .mono{ font-size:.72rem; color:var(--moss); letter-spacing:.1em; }
+
+/* ══════════════ SKILLS */
+#skills{ background:var(--mist); }
+.skill-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+@media (max-width:800px){ .skill-cards{ grid-template-columns:1fr; } }
+.s-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r); padding:26px;
+  transition:transform .2s, box-shadow .2s;
+}
+.s-card:hover{ transform:translateY(-6px) rotate(-1deg); box-shadow:0 16px 34px rgba(44,94,63,.14); }
+.s-card .ico{ font-size:1.9rem; }
+.s-card h3{ font-size:1.15rem; margin:10px 0 12px; }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{
+  font-family:'IBM Plex Mono',monospace; font-size:.76rem;
+  background:var(--mist); border-radius:100px; padding:6px 12px;
+}
+
+/* ══════════════ WORKS */
+.work-list{ display:grid; gap:18px; }
+.w-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r);
+  padding:26px 28px; display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:start;
+  transition:transform .2s, box-shadow .2s;
+}
+.w-card:hover{ transform:translateX(6px); box-shadow:0 12px 30px rgba(44,94,63,.12); }
+.w-card .ico{ font-size:1.7rem; background:var(--mist); border-radius:14px; padding:12px; }
+.w-card h3{ font-size:1.2rem; margin-bottom:6px; }
+.w-card p{ font-size:.95rem; }
+.w-tag{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--moss); letter-spacing:.08em; }
+
+/* ══════════════ GALLERY 📸 */
+#gallery{ background:linear-gradient(180deg, var(--paper), var(--mist)); }
+.masonry{ columns:3 240px; column-gap:16px; }
+.shot{
+  break-inside:avoid; margin-bottom:16px; position:relative; cursor:zoom-in;
+  border-radius:var(--r); overflow:hidden; border:4px solid #fff;
+  box-shadow:0 8px 22px rgba(34,55,43,.12);
+  transition:transform .2s;
+}
+.shot:nth-child(odd):hover{ transform:rotate(1.6deg) scale(1.02); }
+.shot:nth-child(even):hover{ transform:rotate(-1.6deg) scale(1.02); }
+.shot img{ width:100%; }
+.shot figcaption{
+  position:absolute; left:0; right:0; bottom:0;
+  background:linear-gradient(transparent, rgba(34,55,43,.75));
+  color:#fff; font-size:.8rem; padding:26px 14px 10px;
+  font-family:'IBM Plex Mono',monospace;
+}
+/* lightbox */
+#lightbox{
+  position:fixed; inset:0; z-index:100; display:none;
+  background:rgba(20,32,25,.92); cursor:zoom-out;
+  align-items:center; justify-content:center; flex-direction:column; padding:24px;
+}
+#lightbox.open{ display:flex; }
+#lightbox img{ max-width:92vw; max-height:82vh; border-radius:12px; }
+#lightbox p{ color:#DCE9DA; font-family:'IBM Plex Mono',monospace; font-size:.85rem; margin-top:14px; }
+
+/* ══════════════ BLOG */
+.posts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+a.post{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r); padding:24px;
+  text-decoration:none; color:var(--ink); transition:transform .2s, box-shadow .2s;
+}
+a.post:hover{ transform:translateY(-5px) rotate(.6deg); box-shadow:0 14px 30px rgba(44,94,63,.13); }
+a.post .mono{ font-size:.72rem; color:var(--moss); }
+a.post h3{ font-size:1.1rem; margin:8px 0 8px; }
+a.post p{ font-size:.9rem; }
+
+/* ══════════════ FOOTER */
+footer{ background:var(--pine); color:#E6F0E2; padding:70px 0 34px; }
+footer h2{ font-size:clamp(1.7rem,3.4vw,2.3rem); color:#fff; margin-bottom:12px; }
+.f-links{ display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+.f-links a{
+  color:#fff; text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:.82rem;
+  border:1.5px solid rgba(255,255,255,.35); border-radius:100px; padding:9px 18px;
+  transition:background .15s, transform .15s;
+}
+.f-links a:hover{ background:var(--moss); border-color:var(--moss); transform:rotate(-1.5deg); }
+.f-end{
+  margin-top:54px; padding-top:20px; border-top:1px solid rgba(255,255,255,.15);
+  font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#A9C6A6;
+  display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+}
+
+/* scroll reveal */
+.rv{ opacity:0; transform:translateY(20px) rotate(.4deg); transition:opacity .6s, transform .6s; }
+.rv.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .rv{ opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top">🌿 home</a>
+  <a href="#about">about</a>
+  <a href="#skills">skills</a>
+  <a href="#works">works</a>
+  <a href="#gallery">gallery</a>
+  <a href="#blog">blog</a>
+  <a href="#contact">say hi</a>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header id="top">
+  <canvas id="garden" aria-hidden="true"></canvas>
+  <div class="hero-grid">
+    <!-- ✏️ EDIT: your profile photo. Upload it to the repo's images/ folder
+         as profile.jpg (your old repo already has one!) -->
+    <img class="blob" src="images/profile.jpg" alt="Shahidullah Kaisar"
+         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23E4EDE2%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%22110%22 text-anchor=%22middle%22%3E🌱%3C/text%3E%3C/svg%3E'">
+    <div>
+      <p class="hello"><span class="wave">👋</span> hey, I'm</p>
+      <!-- ✏️ EDIT: your name + one-liner -->
+      <h1 class="big">Shahidullah Kaisar.<br>I grow ideas with <em>physics</em> &amp; <em>code</em>.</h1>
+      <p class="hero-p">
+        <!-- ✏️ EDIT: short intro about yourself -->
+        Physics grad student at SUST on my way to becoming a
+        <strong>computational materials scientist</strong>. I shoot lasers at tea for science,
+        simulate atoms on computers, and take photos of everything green.
+      </p>
+      <div class="hero-btns">
+        <a class="btn btn-g" href="#works">See my work 🌱</a>
+        <a class="btn btn-o" href="#gallery">My photos 📸</a>
+      </div>
+    </div>
+  </div>
+  <button class="grow-btn" id="regrow">🌱 grow a new plant</button>
+</header>
+
+<!-- ══════════════ SKILL TICKER — ✏️ EDIT the words inside the spans -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span>Python</span><span>DFT</span><span>Z-scan</span><span>Quantum ESPRESSO</span>
+    <span>Qiskit</span><span>LaTeX</span><span>MATLAB</span><span>photography</span>
+    <span>nonlinear optics</span><span>matplotlib</span><span>tea-powered research</span>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow rv">about me</p>
+    <h2 class="sec rv">Roots &amp; branches</h2>
+    <div class="about-grid">
+      <div class="rv">
+        <!-- ✏️ EDIT: write about yourself here (each paragraph = one <p>) -->
+        <p>
+          I'm a physics major at Shahjalal University of Science and Technology, and I've fallen
+          in love with the question of <strong>why materials do what they do</strong>. In the lab,
+          I measure how intense laser light bends inside black tea solutions (yes, really — it's
+          my master's thesis!). On my laptop, I simulate electrons with density functional theory.
+        </p>
+        <p>
+          I want to become a <strong>computational materials scientist</strong> — someone who
+          designs new materials inside a computer before anyone makes them in a lab. Quantum
+          computing for materials is the frontier I'm most excited about.
+        </p>
+        <p>
+          When I'm not doing physics, I'm outside with a camera. Nature is the best-designed
+          material system there is. 🌿
+        </p>
+      </div>
+      <div class="moto-card rv">
+        <p class="mono">MY MOTIVATION</p>
+        <!-- ✏️ EDIT: your personal motto / motivation -->
+        <h3>"Nature already solved it — I just want to read the solution."</h3>
+        <p>
+          Every leaf, crystal, and cup of tea is running physics we barely understand.
+          Computation is how I get to peek at the source code.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SKILLS ══════════════ -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow rv">skills</p>
+    <h2 class="sec rv">What's in my backpack</h2>
+    <div class="skill-cards">
+      <!-- ✏️ EDIT: change the emoji, titles and chips freely.
+           To add a skill: copy one <span class="chip">…</span> line. -->
+      <div class="s-card rv">
+        <span class="ico">🔬</span>
+        <h3>In the lab</h3>
+        <div class="chips">
+          <span class="chip">Z-scan technique</span>
+          <span class="chip">laser optics</span>
+          <span class="chip">UV-Vis spectroscopy</span>
+          <span class="chip">sample prep</span>
+        </div>
+      </div>
+      <div class="s-card rv">
+        <span class="ico">💻</span>
+        <h3>On the computer</h3>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">DFT</span>
+          <span class="chip">Quantum ESPRESSO</span>
+          <span class="chip">Qiskit</span>
+          <span class="chip">MATLAB</span>
+        </div>
+      </div>
+      <div class="s-card rv">
+        <span class="ico">✍️</span>
+        <h3>Everywhere else</h3>
+        <div class="chips">
+          <span class="chip">LaTeX</span>
+          <span class="chip">data analysis</span>
+          <span class="chip">Git</span>
+          <span class="chip">photography</span>
+          <span class="chip">presentations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ WORKS ══════════════ -->
+<section id="works">
+  <div class="wrap">
+    <p class="eyebrow rv">works</p>
+    <h2 class="sec rv">Things I've grown</h2>
+    <div class="work-list">
+      <!-- ✏️ EDIT: to add a work/project, copy one whole <div class="w-card">…</div> block -->
+      <div class="w-card rv">
+        <span class="ico">🍵</span>
+        <div>
+          <span class="w-tag">MS THESIS · 2024–2026</span>
+          <h3>Nonlinear optics of black tea</h3>
+          <p>Measured nonlinear refractive indices (n₂) of black tea grades (GBOP, DUST, CD)
+             using the Z-scan technique — exploring natural materials for optical power limiting.</p>
+        </div>
+      </div>
+      <div class="w-card rv">
+        <span class="ico">⚛️</span>
+        <div>
+          <span class="w-tag">COMPUTATION</span>
+          <h3>DFT explorations</h3>
+          <p>First-principles calculations of band structures and optical properties —
+             learning to connect measured behavior back to electrons.</p>
+        </div>
+      </div>
+      <div class="w-card rv">
+        <span class="ico">🧩</span>
+        <div>
+          <span class="w-tag">LEARNING NOW</span>
+          <h3>Quantum computing for materials</h3>
+          <p>Playing with Qiskit and variational algorithms — the next chapter of
+             computational materials science.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GALLERY 📸 ══════════════ -->
+<section id="gallery">
+  <div class="wrap">
+    <p class="eyebrow rv">gallery</p>
+    <h2 class="sec rv">Through my lens</h2>
+    <p class="rv" style="margin:-16px 0 30px; max-width:52ch">
+      <!-- ✏️ EDIT: gallery intro -->
+      Nature, friends, and everything in between. Click any photo to see it big.
+    </p>
+    <div class="masonry">
+      <!-- ✏️ EDIT: YOUR PHOTOS.
+           1. Upload photos to the repo folder: images/gallery/
+           2. Copy one <figure> block per photo, change the file name + caption.
+           Photos can be any size — the grid arranges itself! -->
+      <figure class="shot rv"><img src="images/gallery/photo1.jpg" alt="" loading="lazy"><figcaption>🌿 caption for photo 1</figcaption></figure>
+      <figure class="shot rv"><img src="images/gallery/photo2.jpg" alt="" loading="lazy"><figcaption>📷 caption for photo 2</figcaption></figure>
+      <figure class="shot rv"><img src="images/gallery/photo3.jpg" alt="" loading="lazy"><figcaption>🍃 caption for photo 3</figcaption></figure>
+      <figure class="shot rv"><img src="images/gallery/photo4.jpg" alt="" loading="lazy"><figcaption>👥 caption for photo 4</figcaption></figure>
+      <figure class="shot rv"><img src="images/gallery/photo5.jpg" alt="" loading="lazy"><figcaption>🌄 caption for photo 5</figcaption></figure>
+      <figure class="shot rv"><img src="images/gallery/photo6.jpg" alt="" loading="lazy"><figcaption>☕ caption for photo 6</figcaption></figure>
+    </div>
+  </div>
+</section>
+<div id="lightbox" role="dialog" aria-label="Photo viewer"><img src="" alt=""><p></p></div>
+
+<!-- ══════════════ BLOG ══════════════ -->
+<section id="blog">
+  <div class="wrap">
+    <p class="eyebrow rv">blog</p>
+    <h2 class="sec rv">Field notes</h2>
+    <div class="posts">
+      <!-- ✏️ EDIT: to add a post, copy one <a class="post">…</a> block
+           (newest goes first) — and see EDITING_GUIDE.md for making the post page -->
+      <a class="post rv" href="blog/z-scan-explained.html">
+        <span class="mono">2026-07-10</span>
+        <h3>What a Z-scan curve actually tells you</h3>
+        <p>Peak–valley or valley–peak? A friendly tour of the experiment behind my thesis.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer id="contact">
+  <div class="wrap">
+    <h2>Come say hi 🌻</h2>
+    <p style="max-width:48ch">
+      <!-- ✏️ EDIT: contact intro -->
+      Whether it's physics, photos, or a good cup of tea — my inbox is open.
+    </p>
+    <div class="f-links">
+      <!-- ✏️ EDIT: your real links! Delete any you don't use. -->
+      <a href="mailto:your.email@example.com">✉ email me</a>
+      <a href="https://github.com/shahidullahkaisar" target="_blank" rel="noopener">github</a>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">linkedin</a>
+      <a href="cv.pdf">cv 📄</a>
+    </div>
+    <div class="f-end">
+      <span>© 2026 Shahidullah Kaisar</span>
+      <span>grown with 🌱 + physics, hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═════ 1. THE ALGORITHMIC GARDEN 🌿
+   A recursive branching plant "grows" in the hero — computed nature.
+   Click "grow a new plant" for a fresh random one. */
+(function(){
+  const cv = document.getElementById('garden');
+  const ctx = cv.getContext('2d');
+  const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let segs = [], leaves = [], startT = 0, W, H;
+
+  function size(){
+    const d = Math.min(devicePixelRatio||1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W*d; cv.height = H*d; ctx.setTransform(d,0,0,d,0,0);
+  }
+
+  function grow(x, y, angle, len, depth){
+    if (depth <= 0 || len < 5) return;
+    const x2 = x + Math.cos(angle)*len;
+    const y2 = y + Math.sin(angle)*len;
+    segs.push({x1:x, y1:y, x2, y2, w:depth*0.75, order:segs.length});
+    if (depth <= 2 && Math.random() < .8)
+      leaves.push({x:x2, y:y2, r:2.5+Math.random()*3, order:segs.length});
+    const n = Math.random() < .25 ? 3 : 2;
+    for (let i = 0; i < n; i++)
+      grow(x2, y2, angle + (Math.random()-.5)*1.1, len*(0.68+Math.random()*.14), depth-1);
+  }
+
+  function plant(){
+    segs = []; leaves = [];
+    const baseX = W > 800 ? W*0.82 : W*0.5;   // right side on desktop, center behind on mobile
+    grow(baseX, H+10, -Math.PI/2 + (Math.random()-.5)*.2, H*0.14, 8);
+    startT = performance.now();
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    const total = segs.length;
+    const progress = reduced ? 1 : Math.min((t-startT)/3200, 1);  // grows over ~3.2s
+    const shown = total*progress;
+    ctx.lineCap = 'round';
+    ctx.globalAlpha = W > 800 ? 0.9 : 0.28;   // fainter behind text on mobile
+    for (const s of segs){
+      if (s.order > shown) continue;
+      ctx.strokeStyle = '#7FA98455';
+      ctx.lineWidth = s.w;
+      ctx.beginPath(); ctx.moveTo(s.x1,s.y1); ctx.lineTo(s.x2,s.y2); ctx.stroke();
+      /* node "atoms" at joints — computed nature 🔬 */
+      ctx.fillStyle = '#4E8A5766';
+      ctx.beginPath(); ctx.arc(s.x2, s.y2, 1.6, 0, 7); ctx.fill();
+    }
+    for (const l of leaves){
+      if (l.order > shown) continue;
+      const sway = reduced ? 0 : Math.sin(t*0.0016 + l.x)*1.6;
+      ctx.fillStyle = '#4E8A57AA';
+      ctx.beginPath(); ctx.arc(l.x+sway, l.y, l.r, 0, 7); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(draw);
+  }
+
+  addEventListener('resize', ()=>{ size(); plant(); });
+  document.getElementById('regrow').addEventListener('click', plant);
+  size(); plant(); requestAnimationFrame(draw);
+})();
+
+/* ═════ 2. TICKER — duplicate content for seamless loop */
+const tt = document.getElementById('tickerTrack');
+tt.innerHTML += tt.innerHTML;
+
+/* ═════ 3. GALLERY — hide missing photos + lightbox */
+document.querySelectorAll('.shot img').forEach(img=>{
+  img.addEventListener('error', ()=> img.closest('.shot').style.display = 'none');
+});
+const lb = document.getElementById('lightbox');
+const lbImg = lb.querySelector('img'), lbCap = lb.querySelector('p');
+document.querySelectorAll('.shot').forEach(f=>{
+  f.addEventListener('click', ()=>{
+    lbImg.src = f.querySelector('img').src;
+    lbCap.textContent = f.querySelector('figcaption').textContent;
+    lb.classList.add('open');
+  });
+});
+lb.addEventListener('click', ()=> lb.classList.remove('open'));
+addEventListener('keydown', e=>{ if(e.key==='Escape') lb.classList.remove('open'); });
+
+/* ═════ 4. SCROLL REVEAL */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
