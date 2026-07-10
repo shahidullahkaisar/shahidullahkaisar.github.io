@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  🪄 NEW PAGE TEMPLATE                                      ║
+     ║  To make a new page (e.g. dft.html or projects.html):     ║
+     ║   1. Copy this whole file → name it dft.html              ║
+     ║   2. Edit the <title>, the h1, and the content below      ║
+     ║   3. In site.js, add ONE line to the PAGES list:          ║
+     ║        { href: "dft.html", label: "dft" },                ║
+     ║      → the menu updates on EVERY page automatically! ✨   ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+
+<!-- ✏️ EDIT: page title -->
+<title>New Page — Shahidullah Kaisar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+
+<div class="page-hero wrap">
+  <!-- ✏️ EDIT: small label + big title + intro line -->
+  <p class="eyebrow">new page</p>
+  <h1>Your page title ✨</h1>
+  <p class="lead">One friendly line describing what this page is about.</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <!-- ✏️ EDIT: your content. Some ready-made building blocks: -->
+
+    <!-- BLOCK: a simple text panel -->
+    <div class="panel rv" style="margin-bottom:18px">
+      <h3 style="margin-bottom:10px">A heading</h3>
+      <p>Write anything here. Copy this whole panel block to add more.</p>
+    </div>
+
+    <!-- BLOCK: a card with icon + tag (same style as Works) -->
+    <div class="panel w-card rv" style="margin-bottom:18px">
+      <span class="ico">⚛️</span>
+      <div>
+        <span class="w-tag">A SMALL TAG</span>
+        <h3>Card title</h3>
+        <p>Card description text.</p>
+      </div>
+    </div>
+
+    <!-- BLOCK: chips (same style as Skills) -->
+    <div class="panel rv">
+      <h3 style="margin-bottom:12px">Some chips</h3>
+      <div class="chips">
+        <span class="chip">one</span>
+        <span class="chip">two</span>
+        <span class="chip">three</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
